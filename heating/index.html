@@ -1,0 +1,1168 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<title>겨울 난방비 계산기 | 도시가스·지역난방·전기 월 예상 요금</title>
+<meta name="description" content="난방 방식과 평수, 하루 가동 시간, 희망 온도, 외출모드만 넣으면 이번 달 예상 난방비를 계산해 드립니다. 전월 대비로 얼마나 줄일 수 있는지 절약 팁 3가지와 다른 난방 방식과의 비교까지 한 화면에서 확인하세요.">
+<meta name="keywords" content="난방비 계산기, 겨울 난방비 예측, 도시가스 요금 계산, 지역난방 요금, 전기히터 전기요금, 난방비 절약, 외출모드">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mememt77-afk.github.io/heating/">
+<meta property="og:url" content="https://mememt77-afk.github.io/heating/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="겨울 난방비 계산기">
+<meta property="og:title" content="이번 달 난방비, 얼마 나올까?">
+<meta property="og:description" content="평수·가동 시간·희망 온도로 월 예상 난방비를 계산하고, 전월 대비 절약 팁 3가지를 확인하세요.">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%23f2620f'/%3E%3Ctext x='80' y='300' font-family='sans-serif' font-size='62' font-weight='800' fill='white'%3E겨울 난방비 계산기%3C/text%3E%3Ctext x='80' y='382' font-family='sans-serif' font-size='34' fill='%23ffe2d0'%3E이번 달 예상 요금과 절약 팁%3C/text%3E%3C/svg%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="이번 달 난방비, 얼마 나올까?">
+<meta name="twitter:description" content="평수·가동 시간·희망 온도로 월 예상 난방비를 계산합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f2620f'/%3E%3Cpath d='M32 14c8 9 12 14 12 21a12 12 0 0 1-24 0c0-7 4-12 12-21Z' fill='white'/%3E%3Cpath d='M32 30c4 4.5 6 7 6 10a6 6 0 0 1-12 0c0-3 2-5.5 6-10Z' fill='%23f2620f'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "겨울 난방비·전기요금 예측기",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ko",
+  "description": "난방 방식, 평수, 하루 가동 시간, 희망 온도, 외출모드 여부를 입력하면 월 예상 난방비와 절약 팁을 계산해 줍니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "이 계산기의 난방비 숫자는 얼마나 정확한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "같은 평수라도 단열 상태, 창호, 층과 향, 거주 인원, 급탕 사용량에 따라 실제 요금은 크게 달라집니다. 이 계산기는 평균적인 주택을 기준으로 한 참고용 추정치이며, 실제 고지서 금액과는 차이가 날 수 있습니다. 지난달 고지서 금액을 함께 넣으면 내 집 기준으로 얼마나 달라지는지 비교할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "도시가스 난방비는 어떻게 계산되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "도시가스는 사용량(m³)에 단가를 곱하고 기본요금을 더합니다. 1m³는 약 43MJ의 열량이고, 주택용 도시가스 요금은 MJ당 약 21원 수준이라 1m³당 900원 안팎으로 계산됩니다. 실제 단가는 지역과 계절, 공급사에 따라 조금씩 다릅니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "실내 온도를 1도 낮추면 얼마나 아끼나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "일반적으로 실내 온도를 1도 낮추면 난방 에너지가 5~7% 줄어드는 것으로 알려져 있습니다. 이 계산기에서도 1도당 약 6.5% 감소로 반영합니다. 계산 결과의 절약 팁에서 내 조건 기준 금액을 확인할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "외출모드는 실제로 효과가 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2~3시간 이상 집을 비울 때는 확실히 유리합니다. 다만 30분~1시간 정도의 짧은 외출이라면 다시 데우는 에너지가 더 들 수 있어, 짧은 외출에는 그대로 두는 편이 낫습니다. 이 계산기는 외출모드를 켰을 때 약 12% 절감으로 반영합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "지역난방이 도시가스보다 싼가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "열 사용량 단가만 보면 지역난방이 저렴한 편이지만, 세대별 기본요금과 공동요금이 붙고 단지·지역에 따라 요금이 다릅니다. 또 같은 평수라도 단열과 사용 습관에 따라 차이가 커서, 이 계산기의 비교는 참고용으로만 보시고 관리사무소와 한국지역난방공사 요금 안내를 함께 확인하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "전기히터·전기장판은 왜 이렇게 비싸게 나오나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "전기는 열량당 단가가 가스보다 높고, 주택용 전기요금은 사용량이 늘수록 단가가 올라가는 누진 구조입니다. 난방을 전기로 하면 사용량이 누진 2~3구간에 들어가 단가가 크게 올라갑니다. 그래서 전기 난방은 방 하나만 데우는 국소 난방으로 쓰고, 거실 전체를 데우는 용도로는 비용 부담이 큽니다."
+      }
+    }
+  ]
+}
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  :root {
+    --font: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+            "Noto Sans KR", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+
+    --bg: #f2f4f6;
+    --surface: #ffffff;
+    --surface-2: #f7f8fa;
+    --line: #e5e8eb;
+    --line-soft: #eef1f4;
+
+    --ink: #191f28;
+    --ink-2: #333d4b;
+    --muted: #6b7684;
+    --muted-2: #8b95a1;
+
+    --accent: #f2620f;
+    --accent-deep: #c94a06;
+    --accent-wash: #fff0e7;
+    --blue: #3182f6;
+    --blue-deep: #1b64da;
+    --blue-wash: #e8f3ff;
+    --violet: #7c5cff;
+    --violet-wash: #f0ecff;
+    --green: #0f9f6e;
+    --green-wash: #e6f6ef;
+    --red: #e5484d;
+    --amber: #f59e0b;
+    --amber-wash: #fff6e5;
+
+    --r-xl: 24px;
+    --r-lg: 18px;
+    --r-md: 14px;
+    --r-sm: 10px;
+
+    --shadow: 0 2px 8px rgba(25, 31, 40, .04), 0 12px 32px -14px rgba(25, 31, 40, .16);
+    --shadow-strong: 0 18px 40px -18px rgba(201, 74, 6, .45);
+
+    --maxw: 1080px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1216;
+      --surface: #191d23;
+      --surface-2: #20252c;
+      --line: #2c333c;
+      --line-soft: #242a32;
+      --ink: #f2f4f6;
+      --ink-2: #d7dbe0;
+      --muted: #9aa4b2;
+      --muted-2: #7d8794;
+      --accent: #ff8a4c;
+      --accent-deep: #ffa06d;
+      --accent-wash: #2d1a10;
+      --blue: #4c95ff;
+      --blue-deep: #2f7bee;
+      --blue-wash: #1a2b45;
+      --violet: #9b85ff;
+      --violet-wash: #241f3d;
+      --green: #34d399;
+      --green-wash: #12291f;
+      --red: #ff6b6f;
+      --amber: #fbbf24;
+      --amber-wash: #2a2110;
+      --shadow: 0 2px 8px rgba(0, 0, 0, .3), 0 12px 32px -14px rgba(0, 0, 0, .6);
+      --shadow-strong: 0 18px 40px -18px rgba(0, 0, 0, .7);
+    }
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .num { font-variant-numeric: tabular-nums; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 18px; }
+
+  /* ---------- header ---------- */
+  .site-head { padding: 26px 0 6px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; color: var(--accent-deep);
+    background: var(--accent-wash);
+    padding: 6px 11px; border-radius: 999px;
+    letter-spacing: -0.01em;
+  }
+  .brand svg { width: 14px; height: 14px; }
+  h1.hero-title {
+    margin: 14px 0 8px;
+    font-size: clamp(23px, 5.4vw, 34px);
+    line-height: 1.34;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  h1.hero-title .hl { color: var(--accent); }
+  .hero-sub { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.62; }
+
+  /* ---------- layout ---------- */
+  .layout {
+    display: grid; grid-template-columns: minmax(0, 1fr);
+    gap: 16px; padding: 18px 0 8px;
+  }
+  .layout > * { min-width: 0; }
+  .field, .field-head > * { min-width: 0; }
+  @media (min-width: 900px) {
+    .layout { grid-template-columns: minmax(0, 1fr) minmax(0, 430px); gap: 22px; align-items: start; }
+    .result-col { position: sticky; top: 18px; }
+  }
+
+  .card {
+    background: var(--surface); border-radius: var(--r-xl);
+    box-shadow: var(--shadow); padding: 20px;
+  }
+  @media (min-width: 640px) { .card { padding: 24px; } }
+
+  .card-title { margin: 0 0 4px; font-size: 17px; font-weight: 800; letter-spacing: -0.025em; }
+  .card-desc { margin: 0 0 18px; color: var(--muted); font-size: 13.5px; }
+
+  .field { padding: 16px 0; border-top: 1px solid var(--line-soft); }
+  .field:first-of-type { border-top: 0; padding-top: 4px; }
+  .field-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .field-label { font-size: 14.5px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+  .field-hint { font-size: 12px; color: var(--muted-2); }
+
+  /* ---------- chips ---------- */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    appearance: none; border: 1px solid var(--line);
+    background: var(--surface); color: var(--ink-2);
+    font-family: inherit; font-size: 13.5px; font-weight: 600;
+    padding: 10px 14px; border-radius: 999px; cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s, transform .12s;
+    letter-spacing: -0.02em;
+  }
+  .chip:hover { background: var(--surface-2); }
+  .chip:active { transform: scale(.97); }
+  .chip[aria-pressed="true"] {
+    background: var(--accent-wash); border-color: var(--accent);
+    color: var(--accent-deep); font-weight: 700;
+  }
+  .chip:focus-visible { outline: 3px solid rgba(242,98,15,.3); outline-offset: 2px; }
+
+  /* ---------- slider ---------- */
+  .slider-block { display: flex; align-items: center; gap: 14px; }
+  .slider-block input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    flex: 1; height: 30px; background: transparent; cursor: pointer; margin: 0; min-width: 0;
+  }
+  .slider-block input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px; border-radius: 99px;
+    background: linear-gradient(to right, var(--accent) var(--fill, 33%), var(--line) var(--fill, 33%));
+  }
+  .slider-block input[type="range"]::-moz-range-track { height: 6px; border-radius: 99px; background: var(--line); }
+  .slider-block input[type="range"]::-moz-range-progress { height: 6px; border-radius: 99px; background: var(--accent); }
+  .slider-block input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(25,31,40,.18);
+    margin-top: -9px;
+  }
+  .slider-block input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(25,31,40,.18);
+  }
+  .slider-block input[type="range"]:focus-visible { outline: none; }
+  .slider-block input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 6px rgba(242,98,15,.22); }
+
+  .slider-value {
+    flex: none; white-space: nowrap;
+    display: flex; align-items: center; justify-content: flex-end; gap: 3px;
+    background: var(--surface-2); border-radius: var(--r-sm);
+    padding: 7px 10px;
+  }
+  .slider-value b {
+    font-size: 17px; font-weight: 800; color: var(--ink);
+    font-variant-numeric: tabular-nums; min-width: 26px; text-align: right;
+  }
+  .slider-value span { font-size: 13px; color: var(--muted); font-weight: 600; }
+  .slider-scale { display: flex; justify-content: space-between; margin-top: 2px; padding: 0 2px 0 0; }
+  .slider-scale span { font-size: 11px; color: var(--muted-2); }
+
+  /* ---------- inputs ---------- */
+  .input-box {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--surface-2); border: 1.5px solid transparent;
+    border-radius: var(--r-md); padding: 0 14px;
+    transition: border-color .15s, background .15s;
+  }
+  .input-box:focus-within { border-color: var(--accent); background: var(--surface); }
+  .input-box input {
+    flex: 1 1 0; width: 100%; min-width: 0;
+    border: 0; background: transparent; outline: none;
+    font-family: inherit; font-size: 18px; font-weight: 700;
+    color: var(--ink); letter-spacing: -0.02em; padding: 13px 0;
+    font-variant-numeric: tabular-nums; text-align: right;
+  }
+  .input-box .unit { font-size: 14px; color: var(--muted); font-weight: 600; flex: none; }
+  .input-box input::placeholder { color: var(--muted-2); font-weight: 600; }
+  .input-cap { display: block; font-size: 12px; color: var(--muted-2); margin-top: 7px; line-height: 1.5; }
+
+  /* ---------- switch ---------- */
+  .switch-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .switch-copy { min-width: 0; }
+  .switch-copy b { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
+  .switch-copy small { display: block; font-size: 12px; color: var(--muted-2); margin-top: 2px; }
+  .switch {
+    flex: none; position: relative; width: 52px; height: 30px; border-radius: 999px;
+    border: 0; background: var(--line); cursor: pointer; padding: 0;
+    transition: background .18s;
+  }
+  .switch::after {
+    content: ""; position: absolute; top: 3px; left: 3px;
+    width: 24px; height: 24px; border-radius: 50%; background: #fff;
+    box-shadow: 0 1px 3px rgba(25,31,40,.24);
+    transition: transform .18s cubic-bezier(.2,.8,.2,1);
+  }
+  .switch[aria-checked="true"] { background: var(--accent); }
+  .switch[aria-checked="true"]::after { transform: translateX(22px); }
+  .switch:focus-visible { outline: 3px solid rgba(242,98,15,.3); outline-offset: 2px; }
+
+  .note {
+    display: flex; gap: 7px; align-items: flex-start;
+    font-size: 12px; line-height: 1.55; color: var(--muted);
+    background: var(--surface-2); border-radius: var(--r-sm);
+    padding: 11px 12px; margin-top: 12px; word-break: keep-all;
+  }
+  .note svg { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--muted-2); }
+  .note.warn { background: var(--amber-wash); color: #8a5a00; }
+  @media (prefers-color-scheme: dark) { .note.warn { color: #f2c160; } }
+
+  /* ---------- result ---------- */
+  .result-card { padding: 0; overflow: hidden; }
+
+  .verdict {
+    padding: 22px 20px 20px;
+    background: linear-gradient(155deg, var(--accent-wash), var(--surface) 78%);
+  }
+  .verdict-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+  .verdict-label { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: -0.01em; }
+  .basis-tag {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px 8px; background: var(--surface); white-space: nowrap;
+  }
+  .verdict-amount {
+    font-size: clamp(32px, 9vw, 42px);
+    font-weight: 800; letter-spacing: -0.04em; line-height: 1.14;
+    color: var(--accent-deep); word-break: keep-all;
+    font-variant-numeric: tabular-nums;
+    display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap;
+    margin: 0;
+  }
+  .verdict-amount .won { font-size: 20px; font-weight: 700; color: var(--muted); letter-spacing: -0.02em; }
+  .verdict-msg { margin: 9px 0 0; font-size: 13.5px; color: var(--ink-2); line-height: 1.58; word-break: keep-all; }
+  .verdict-msg strong { font-weight: 800; }
+
+  .delta {
+    display: inline-flex; align-items: center; gap: 5px;
+    margin-top: 10px; font-size: 12.5px; font-weight: 800;
+    padding: 5px 10px; border-radius: 999px;
+    background: var(--green-wash); color: var(--green);
+  }
+  .delta[hidden] { display: none; }
+  .delta.up { background: #fdecec; color: #c22b30; }
+  @media (prefers-color-scheme: dark) { .delta.up { background: #2c1718; color: #ff8b8e; } }
+
+  /* ---------- usage list ---------- */
+  .detail { padding: 18px 20px 6px; border-top: 1px solid var(--line-soft); }
+  .bd-title { margin: 0 0 12px; font-size: 13px; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+  .det-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    padding: 8px 0; border-bottom: 1px dashed var(--line-soft);
+    font-size: 13px; color: var(--muted);
+  }
+  .det-row:last-child { border-bottom: 0; }
+  .det-row b { font-size: 13.5px; font-weight: 800; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .det-row.total { margin-top: 4px; padding-top: 12px; border-top: 1px solid var(--line-soft); border-bottom: 0; }
+  .det-row.total span { font-weight: 800; color: var(--ink); font-size: 13.5px; }
+  .det-row.total b { color: var(--accent-deep); font-size: 16px; }
+
+  /* ---------- tips ---------- */
+  .tips { padding: 16px 20px 18px; border-top: 1px solid var(--line-soft); }
+  .tips-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+  .tips-head .bd-title { margin: 0; }
+  .tips-total { font-size: 12px; font-weight: 800; color: var(--green); white-space: nowrap; }
+  .tips-sub { margin: 0 0 12px; font-size: 12px; color: var(--muted); line-height: 1.55; }
+  .tip {
+    display: flex; gap: 11px; align-items: flex-start;
+    background: var(--surface-2); border-radius: var(--r-md);
+    padding: 13px 14px;
+  }
+  .tip + .tip { margin-top: 8px; }
+  .tip-no {
+    flex: none; width: 24px; height: 24px; border-radius: 8px;
+    display: grid; place-items: center;
+    background: var(--accent); color: #fff; font-size: 12px; font-weight: 800;
+  }
+  .tip-body { min-width: 0; flex: 1; }
+  .tip-t { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .tip-t b { font-size: 13.5px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+  .tip-save { font-size: 12.5px; font-weight: 800; color: var(--green); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tip-d { margin: 3px 0 0; font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+  /* ---------- mode compare ---------- */
+  .modecmp { padding: 16px 20px 18px; border-top: 1px solid var(--line-soft); }
+  .mc-row { padding: 7px 0; }
+  .mc-line { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 5px; }
+  .mc-name { font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+  .mc-name .me { font-size: 10.5px; font-weight: 800; color: var(--accent-deep); background: var(--accent-wash); padding: 2px 6px; border-radius: 999px; margin-left: 5px; }
+  .mc-val { font-size: 13px; font-weight: 800; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .mc-track { height: 7px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+  .mc-fill { height: 100%; border-radius: 99px; transition: width .35s cubic-bezier(.2,.8,.2,1); min-width: 3px; }
+  .mc-fill.gas { background: linear-gradient(90deg, #ffa06d, var(--accent)); }
+  .mc-fill.district { background: linear-gradient(90deg, #7fb4fb, var(--blue)); }
+  .mc-fill.electric { background: linear-gradient(90deg, #b3a2ff, var(--violet)); }
+  .mc-foot { margin: 10px 0 0; font-size: 11.5px; color: var(--muted-2); line-height: 1.55; }
+
+  /* ---------- cta ---------- */
+  .cta-card {
+    margin: 14px 0 0;
+    background: linear-gradient(160deg, #ff7a2f, #ee5a0a 60%, #cf4306);
+    border-radius: var(--r-xl); padding: 22px 20px 18px; color: #fff;
+    box-shadow: var(--shadow-strong);
+  }
+  .cta-kicker {
+    display: inline-block; font-size: 11.5px; font-weight: 800;
+    background: rgba(255,255,255,.2); border-radius: 999px;
+    padding: 4px 10px; margin-bottom: 10px; letter-spacing: -0.01em;
+  }
+  .cta-title { margin: 0 0 6px; font-size: 19px; font-weight: 800; line-height: 1.35; letter-spacing: -0.03em; word-break: keep-all; }
+  .cta-sub { margin: 0 0 15px; font-size: 13px; color: rgba(255,255,255,.85); line-height: 1.55; word-break: keep-all; }
+  .cta-btn {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    width: 100%; text-decoration: none;
+    background: #fff; color: var(--accent-deep);
+    font-size: 15.5px; font-weight: 800; letter-spacing: -0.02em;
+    padding: 15px 16px; border-radius: var(--r-md);
+    box-shadow: 0 6px 18px rgba(0,0,0,.16);
+    transition: transform .12s, box-shadow .15s;
+    text-align: center; line-height: 1.35;
+  }
+  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.22); }
+  .cta-btn:active { transform: scale(.99); }
+  .cta-btn svg { flex: none; width: 16px; height: 16px; }
+  .cta-fine { margin: 11px 0 0; font-size: 11px; line-height: 1.55; color: rgba(255,255,255,.75); word-break: keep-all; }
+
+  /* ---------- faq / guide ---------- */
+  .faq-section { padding: 28px 0 4px; }
+  .faq-section h2 { margin: 0 0 4px; font-size: 19px; font-weight: 800; letter-spacing: -0.03em; }
+  .faq-section .sec-sub { margin: 0 0 14px; font-size: 13.5px; color: var(--muted); }
+  .faq-item {
+    background: var(--surface); border-radius: var(--r-lg);
+    box-shadow: var(--shadow); margin-bottom: 9px; overflow: hidden;
+  }
+  .faq-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    cursor: pointer; list-style: none;
+    padding: 16px 18px; font-size: 14.5px; font-weight: 700; letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .faq-q::-webkit-details-marker { display: none; }
+  .faq-q::after {
+    content: ""; flex: none; width: 9px; height: 9px;
+    border-right: 2px solid var(--muted-2); border-bottom: 2px solid var(--muted-2);
+    transform: rotate(45deg); transition: transform .2s; margin-top: -4px;
+  }
+  .faq-item[open] .faq-q::after { transform: rotate(-135deg); margin-top: 4px; }
+  .faq-item[open] .faq-q { color: var(--accent-deep); }
+  .faq-a { padding: 0 18px 16px; font-size: 13.5px; line-height: 1.72; color: var(--ink-2); word-break: keep-all; }
+  .faq-a p { margin: 0; }
+
+  .guide { margin-top: 18px; }
+  .guide h2 { margin: 0 0 10px; font-size: 17px; font-weight: 800; letter-spacing: -0.03em; }
+  .guide ul { margin: 0; padding-left: 18px; }
+  .guide li { font-size: 13.5px; color: var(--ink-2); line-height: 1.72; margin-bottom: 6px; word-break: keep-all; }
+
+  footer.site-foot {
+    margin-top: 26px; padding: 22px 0 28px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px; line-height: 1.7; color: var(--muted-2);
+    word-break: keep-all;
+  }
+  footer.site-foot p { margin: 0 0 7px; }
+  footer.site-foot .disc { color: var(--muted); }
+
+  /* ---------- mobile sticky bar ---------- */
+  .sticky-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.92);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-top: 1px solid var(--line);
+    transform: translateY(110%);
+    transition: transform .28s cubic-bezier(.2,.8,.2,1);
+  }
+  .sticky-bar.show { transform: translateY(0); }
+  .sticky-bar .sb-txt { flex: 1; min-width: 0; }
+  .sticky-bar .sb-label { display: block; font-size: 10.5px; color: var(--muted); font-weight: 600; }
+  .sticky-bar .sb-val {
+    display: block; font-size: 17px; font-weight: 800; letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums; line-height: 1.25; color: var(--accent-deep);
+  }
+  .sticky-bar a.sb-btn {
+    flex: none; text-decoration: none;
+    background: var(--accent); color: #fff; font-size: 13.5px; font-weight: 800;
+    padding: 12px 15px; border-radius: 12px; letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  @media (prefers-color-scheme: dark) {
+    .sticky-bar { background: rgba(25,29,35,.92); }
+  }
+  @media (min-width: 900px) { .sticky-bar { display: none; } }
+  @media (max-width: 899px) { body { padding-bottom: 84px; } }
+
+  @media (max-width: 620px) { .pc-only { display: none; } }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site-head">
+    <span class="brand">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c3.6 4.2 5.6 6.7 5.6 9.6a5.6 5.6 0 1 1-11.2 0C6.4 9.7 8.4 7.2 12 3Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/></svg>
+      3초 계산 · 가입 없이
+    </span>
+    <h1 class="hero-title">이번 달 난방비,<br><span class="hl">얼마 나올까?</span></h1>
+    <p class="hero-sub">평수와 가동 시간, 희망 온도만 넣으면 이번 달 예상 난방비와<br class="pc-only"> 전월 대비 얼마나 줄일 수 있는지도 함께 계산해 드려요.</p>
+  </header>
+
+  <div class="layout">
+    <!-- ============ INPUT ============ -->
+    <section class="card" aria-labelledby="in-title">
+      <h2 class="card-title" id="in-title">내 집 조건 입력</h2>
+      <p class="card-desc">슬라이더를 움직이면 결과가 바로 바뀝니다. 지난달 고지서를 옆에 두고 맞춰 보세요.</p>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">난방 방식</span>
+          <span class="field-hint" id="modeHint">도시가스 보일러</span>
+        </div>
+        <div class="chips" role="group" aria-label="난방 방식 선택">
+          <button type="button" class="chip" data-mode="gas" aria-pressed="true">도시가스 보일러</button>
+          <button type="button" class="chip" data-mode="district" aria-pressed="false">지역난방</button>
+          <button type="button" class="chip" data-mode="electric" aria-pressed="false">전기히터·전기장판</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">집 평수</span>
+          <span class="field-hint" id="areaHint">전용면적 25평 · 82.6㎡</span>
+        </div>
+        <div class="slider-block">
+          <input id="areaRange" type="range" min="10" max="50" step="1" value="25" aria-label="집 평수 슬라이더">
+          <div class="slider-value">
+            <label class="sr-only" for="areaNum">집 평수</label>
+            <input id="areaNum" type="number" min="10" max="50" step="1" value="25" style="display:none">
+            <b id="areaVal">25</b><span>평</span>
+          </div>
+        </div>
+        <div class="slider-scale"><span>10평</span><span>30평</span><span>50평</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">하루 난방 가동 시간</span>
+          <span class="field-hint" id="hoursHint">하루 6시간</span>
+        </div>
+        <div class="slider-block">
+          <input id="hoursRange" type="range" min="1" max="24" step="1" value="6" aria-label="하루 난방 가동 시간 슬라이더">
+          <div class="slider-value"><b id="hoursVal">6</b><span>시간</span></div>
+        </div>
+        <div class="slider-scale"><span>1시간</span><span>12시간</span><span>24시간</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">희망 실내 온도</span>
+          <span class="field-hint" id="tempHint">22°C · 권장 구간</span>
+        </div>
+        <div class="slider-block">
+          <input id="tempRange" type="range" min="18" max="26" step="1" value="22" aria-label="희망 실내 온도 슬라이더">
+          <div class="slider-value"><b id="tempVal">22</b><span>°C</span></div>
+        </div>
+        <div class="slider-scale"><span>18°C</span><span>22°C</span><span>26°C</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">외출모드</span>
+          <span class="field-hint">켜면 약 12% 절감</span>
+        </div>
+        <div class="switch-row">
+          <div class="switch-copy">
+            <b id="awayLabel">사용 안 함</b>
+            <small>2시간 이상 비울 때 켜세요. 짧은 외출은 오히려 손해일 수 있어요.</small>
+          </div>
+          <button type="button" class="switch" id="awaySwitch" role="switch" aria-checked="false" aria-label="외출모드 사용"></button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-head">
+          <span class="field-label">지난달 난방비 (선택)</span>
+          <span class="field-hint">모르면 비워 두세요</span>
+        </div>
+        <label class="sr-only" for="lastBill">지난달 난방비</label>
+        <div class="input-box">
+          <input id="lastBill" type="text" inputmode="numeric" autocomplete="off" value="" placeholder="152,000">
+          <span class="unit">원</span>
+        </div>
+        <span class="input-cap">지난달 고지서의 난방 관련 금액을 넣으면 이번 달 예상치와 비교해 드려요.</span>
+      </div>
+
+      <p class="note warn">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 8v5M12 16.5v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <span>이 계산기는 평균적인 주택을 기준으로 한 <b>참고용 추정치</b>입니다. 실제 고지서 금액은 단열·창호·층·향·급탕 사용량에 따라 달라집니다.</span>
+      </p>
+    </section>
+
+    <!-- ============ RESULT ============ -->
+    <div class="result-col">
+      <section class="card result-card" aria-labelledby="res-title">
+        <h2 class="sr-only" id="res-title">계산 결과</h2>
+
+        <div class="verdict" aria-live="polite">
+          <div class="verdict-top">
+            <span class="verdict-label" id="vLabel">이번 달 예상 난방비</span>
+            <span class="basis-tag">참고용 추정</span>
+          </div>
+          <p class="verdict-amount num"><span id="mainCost">15.0</span><span class="won">만원</span></p>
+          <p class="verdict-msg" id="verdictMsg">25평 · 하루 6시간 · 22°C 기준 도시가스 예상 금액이에요.</p>
+          <span class="delta" id="delta" hidden></span>
+        </div>
+
+        <div class="detail">
+          <h3 class="bd-title">계산 근거</h3>
+          <div class="det-row"><span id="detUsageLabel">예상 사용량</span><b id="detUsage">165 m³</b></div>
+          <div class="det-row"><span id="detUnitLabel">적용 단가 (m³당)</span><b id="detUnit">약 905원</b></div>
+          <div class="det-row"><span>기본요금</span><b id="detBase">1,100원</b></div>
+          <div class="det-row total"><span>월 예상 난방비</span><b id="detTotal">150,442원</b></div>
+        </div>
+
+        <div class="tips">
+          <div class="tips-head">
+            <h3 class="bd-title">전월 대비 이렇게 줄이면</h3>
+            <span class="tips-total" id="tipsTotal"></span>
+          </div>
+          <p class="tips-sub" id="tipsSub">지금 설정 그대로면 이번 달도 비슷할 거예요. 아래 3가지를 더하면 월 절감액이 이만큼이에요.</p>
+          <div id="tipList"></div>
+        </div>
+
+        <div class="modecmp">
+          <h3 class="bd-title">같은 조건, 다른 난방 방식과 비교</h3>
+          <div id="modeList"></div>
+          <p class="mc-foot" id="modeFoot"></p>
+        </div>
+      </section>
+
+      <div class="cta-card">
+        <span class="cta-kicker">고지서 보기 전에 미리 챙기기</span>
+        <h2 class="cta-title">난방비 줄이는<br>방한·절전 가성비템 보기</h2>
+        <p class="cta-sub">문풍지·단열시트·전기요 같은 저렴한 방한용품부터, 대기전력 차단과 온도계까지 한 번에 모아 봤어요.</p>
+        <a class="cta-btn" id="ctaMain" href="https://auto-lead-hub.replit.app/coupang" target="_blank" rel="noopener noreferrer">
+          난방비 줄이는 방한·절전 가성비템 보기
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="cta-fine">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 가격과 재고는 판매처 기준입니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ GUIDE ============ -->
+  <section class="guide card" aria-labelledby="guide-title" style="margin-top:18px">
+    <h2 id="guide-title">고지서가 예상보다 많이 나왔다면</h2>
+    <ul>
+      <li><b>누진·구간 요금을 확인하세요.</b> 전기는 사용량이 늘수록 단가가 올라가고, 도시가스도 계절·용도별 단가가 다릅니다. 같은 사용량이라도 구간이 바뀌면 금액이 크게 달라집니다.</li>
+      <li><b>급탕(온수) 사용이 난방보다 클 수 있어요.</b> 샤워·설거지 온수는 난방과 같은 열원을 씁니다. 욕실 온수 온도를 낮추고 사용 시간을 줄이면 난방 설정을 바꾸지 않고도 줄어요.</li>
+      <li><b>외출은 2시간이 기준이에요.</b> 30분~1시간 짧은 외출에 외출모드를 켜면 다시 데우는 에너지가 더 들 수 있습니다.</li>
+      <li><b>창·문틈이 가장 큰 구멍이에요.</b> 문풍지, 창호 단열시트, 커튼 두껍게 치기만으로도 체감 온도가 올라가 난방 설정을 낮출 수 있습니다.</li>
+      <li><b>실내 온도 20~22°C를 권장해요.</b> 1°C 낮추면 난방 에너지가 5~7% 줄어드는 것으로 알려져 있습니다.</li>
+    </ul>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq-section" aria-labelledby="faq-title">
+    <h2 id="faq-title">자주 묻는 질문</h2>
+    <p class="sec-sub">숫자를 믿기 전에 알아 둘 것</p>
+
+    <details class="faq-item">
+      <summary class="faq-q">이 계산기의 난방비 숫자는 얼마나 정확한가요?</summary>
+      <div class="faq-a"><p>같은 평수라도 단열 상태, 창호, 층과 향, 거주 인원, 급탕 사용량에 따라 실제 요금은 크게 달라집니다. 이 계산기는 평균적인 주택을 기준으로 한 참고용 추정치이며, 실제 고지서 금액과는 차이가 날 수 있어요. 지난달 고지서 금액을 함께 넣으면 내 집 기준으로 얼마나 달라지는지 비교할 수 있습니다.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">도시가스 난방비는 어떻게 계산되나요?</summary>
+      <div class="faq-a"><p>도시가스는 사용량(m³)에 단가를 곱하고 기본요금을 더합니다. 1m³는 약 43MJ의 열량이고, 주택용 도시가스 요금은 MJ당 약 21원 수준이라 1m³당 900원 안팎으로 계산돼요. 실제 단가는 지역과 계절, 공급사에 따라 조금씩 다릅니다.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">실내 온도를 1도 낮추면 얼마나 아끼나요?</summary>
+      <div class="faq-a"><p>일반적으로 실내 온도를 1도 낮추면 난방 에너지가 5~7% 줄어드는 것으로 알려져 있습니다. 이 계산기에서도 1도당 약 6.5% 감소로 반영해요. 계산 결과의 절약 팁에서 내 조건 기준 금액을 확인할 수 있습니다.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">외출모드는 실제로 효과가 있나요?</summary>
+      <div class="faq-a"><p>2~3시간 이상 집을 비울 때는 확실히 유리합니다. 다만 30분~1시간 정도의 짧은 외출이라면 다시 데우는 에너지가 더 들 수 있어, 짧은 외출에는 그대로 두는 편이 나아요. 이 계산기는 외출모드를 켰을 때 약 12% 절감으로 반영합니다.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">지역난방이 도시가스보다 싼가요?</summary>
+      <div class="faq-a"><p>열 사용량 단가만 보면 지역난방이 저렴한 편이지만, 세대별 기본요금과 공동요금이 붙고 단지·지역에 따라 요금이 다릅니다. 또 같은 평수라도 단열과 사용 습관에 따라 차이가 커서, 이 계산기의 비교는 참고용으로만 보시고 관리사무소와 한국지역난방공사 요금 안내를 함께 확인하세요.</p></div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">전기히터·전기장판은 왜 이렇게 비싸게 나오나요?</summary>
+      <div class="faq-a"><p>전기는 열량당 단가가 가스보다 높고, 주택용 전기요금은 사용량이 늘수록 단가가 올라가는 누진 구조입니다. 난방을 전기로 하면 사용량이 누진 2~3구간에 들어가 단가가 크게 올라가요. 그래서 전기 난방은 방 하나만 데우는 국소 난방으로 쓰고, 거실 전체를 데우는 용도로는 비용 부담이 큽니다.</p></div>
+    </details>
+  </section>
+
+  <footer class="site-foot">
+    <p class="disc">이 페이지는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    <p>계산 결과는 평균적인 주택을 기준으로 한 참고용 추정치입니다. 실제 요금은 지역·요금제·단열 상태·급탕 사용량에 따라 달라지므로 고지서와 공급사 안내를 확인하세요.</p>
+    <p>© 2026 겨울 난방비 계산기</p>
+  </footer>
+</div>
+
+<!-- ============ mobile sticky bar ============ -->
+<div class="sticky-bar" id="stickyBar" aria-hidden="true">
+  <div class="sb-txt">
+    <span class="sb-label" id="sbLabel">이번 달 예상 난방비</span>
+    <span class="sb-val num" id="sbVal">15.0만원</span>
+  </div>
+  <a class="sb-btn" id="ctaMob" href="https://auto-lead-hub.replit.app/coupang" target="_blank" rel="noopener noreferrer" tabindex="-1">방한템 보기</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------------- model ---------------- */
+  var MODE = {
+    gas: {
+      label: '도시가스 보일러',
+      hint: '도시가스 보일러',
+      baseM3: 165,          // 25평 · 6시간 · 22°C · 외출모드 없음 기준
+      mjPerM3: 43.1,
+      wonPerMj: 21.0,
+      baseFee: 1100,
+      usageUnit: 'm³',
+      usageLabel: '예상 가스 사용량',
+      unitLabel: '적용 단가 (m³당)'
+    },
+    district: {
+      label: '지역난방',
+      hint: '지역난방 (세대 계량)',
+      baseMj: 2100,
+      wonPerMj: 58.0,
+      baseFee: 8500,
+      usageUnit: 'MJ',
+      usageLabel: '예상 열 사용량',
+      unitLabel: '적용 단가 (MJ당)'
+    },
+    electric: {
+      label: '전기히터·전기장판',
+      hint: '전기 난방 (누진 주의)',
+      baseKwh: 1350,
+      wonPerKwh: 190,
+      baseFee: 1600,
+      usageUnit: 'kWh',
+      usageLabel: '예상 전력 사용량',
+      unitLabel: '적용 단가 (kWh당)'
+    }
+  };
+
+  var state = {
+    mode: 'gas',
+    area: 25,
+    hours: 6,
+    temp: 22,
+    away: false,
+    lastBill: 0
+  };
+
+  var STORE_KEY = 'heating-calc.v1';
+
+  /* ---------------- utils ---------------- */
+  function won(n) { return Math.round(n).toLocaleString('ko-KR'); }
+  function digits(s) { return String(s == null ? '' : s).replace(/[^\d]/g, ''); }
+  function clamp(n, lo, hi) { return Math.min(hi, Math.max(lo, n)); }
+  function man(n) {
+    var v = Math.round((n / 10000) * 10) / 10;
+    return (v % 1 === 0 ? String(v) : v.toFixed(1)) + '만원';
+  }
+  function wonShort(n) {
+    if (Math.abs(n) >= 10000) return man(n);
+    return won(n) + '원';
+  }
+
+  /* ---------------- estimate ---------------- */
+  function estimate(mode, area, hours, temp, away) {
+    var m = MODE[mode];
+    var areaF = Math.pow(area / 25, 0.92);
+    var timeF = Math.pow(hours / 6, 0.78);
+    var tempF = Math.max(0.55, 1 + (temp - 22) * 0.065);
+    var awayF = away ? 0.88 : 1;
+    var f = areaF * timeF * tempF * awayF;
+
+    if (mode === 'gas') {
+      var m3 = m.baseM3 * f;
+      var energy = m3 * m.mjPerM3;                 // MJ
+      var cost = energy * m.wonPerMj + m.baseFee;
+      return {
+        cost: cost, usage: m3, unit: m.usageUnit,
+        unitPrice: m.mjPerM3 * m.wonPerMj, baseFee: m.baseFee,
+        energy: energy
+      };
+    }
+    if (mode === 'district') {
+      var mj = m.baseMj * f;
+      var cost2 = mj * m.wonPerMj + m.baseFee;
+      return {
+        cost: cost2, usage: mj, unit: m.usageUnit,
+        unitPrice: m.wonPerMj, baseFee: m.baseFee, energy: mj
+      };
+    }
+    var kwh = m.baseKwh * f;
+    var cost3 = kwh * m.wonPerKwh + m.baseFee;
+    return {
+      cost: cost3, usage: kwh, unit: m.usageUnit,
+      unitPrice: m.wonPerKwh, baseFee: m.baseFee, energy: kwh * 3.6
+    };
+  }
+
+  /* ---------------- tips ---------------- */
+  function buildTips(r) {
+    var tips = [];
+    var m = state.mode;
+
+    if (state.temp > 18) {
+      var t1 = estimate(m, state.area, state.hours, state.temp - 1, state.away);
+      tips.push({
+        t: '실내 온도 1°C 낮추기',
+        d: state.temp + '°C → ' + (state.temp - 1) + '°C. 권장 실내온도는 20~22°C예요.',
+        save: r.cost - t1.cost
+      });
+    } else {
+      tips.push({
+        t: '온도는 이미 낮게 쓰고 있어요',
+        d: '18°C는 권장 하한이에요. 대신 방한·급탕 쪽에서 줄여 보세요.',
+        save: r.cost * 0.03
+      });
+    }
+
+    if (!state.away) {
+      var t2 = estimate(m, state.area, state.hours, state.temp, true);
+      tips.push({
+        t: '외출모드 켜기',
+        d: '2시간 이상 비울 때만 켜세요. 짧은 외출은 다시 데우는 비용이 더 들어요.',
+        save: r.cost - t2.cost
+      });
+    } else {
+      var t2b = estimate(m, state.area, state.hours, state.temp, true);
+      tips.push({
+        t: '귀가 30분 전 예약 난방',
+        d: '외출모드 상태에서 돌아오기 직전에만 데우면 쾌적함은 유지하면서 덜 써요.',
+        save: t2b.cost * 0.04
+      });
+    }
+
+    if (state.hours > 2) {
+      var t3 = estimate(m, state.area, state.hours - 1, state.temp, state.away);
+      tips.push({
+        t: '하루 가동 1시간 줄이기',
+        d: '하루 6시간 이상이면 30분 단위로 나눠 켜는 편이 효율적이에요.',
+        save: r.cost - t3.cost
+      });
+    } else {
+      tips.push({
+        t: '켜는 시간대를 집중하기',
+        d: '짧게 여러 번 켜는 것보다 한 번에 몰아서 데우는 편이 열손실이 적어요.',
+        save: r.cost * 0.03
+      });
+    }
+
+    var insul = {
+      gas: { t: '창·문틈 방한으로 열 손실 막기', d: '문풍지·창호 단열시트·두꺼운 커튼만으로도 설정 온도를 낮출 수 있어요.' },
+      district: { t: '창·문틈 방한으로 열 손실 막기', d: '지역난방은 사용량이 요금에 직결돼요. 방한만 해도 사용 열량이 줄어요.' },
+      electric: { t: '전기장판·온수매트로 국소 난방', d: '방 하나만 데우는 국소 난방이 거실 전체를 전기로 데우는 것보다 훨씬 저렴해요.' }
+    }[m];
+    tips.push({ t: insul.t, d: insul.d, save: r.cost * 0.08 });
+
+    var extra = {
+      gas: { t: '급탕 온도 40~45°C로 낮추기', d: '온수도 같은 가스로 데워요. 욕실 온수 온도를 낮추면 난방 설정을 그대로 두고도 줄어요.' },
+      district: { t: '세대 열량계 수치 확인하기', d: '지역난방은 사용량 요금 비중이 커요. 관리사무소에서 지난달 사용 열량을 확인해 비교해 보세요.' },
+      electric: { t: '누진 구간 넘지 않기', d: '전기요금은 사용량이 늘수록 단가가 올라가요. 다른 전기 사용을 줄여 구간을 낮추면 체감 절감이 커요.' }
+    }[m];
+    tips.push({ t: extra.t, d: extra.d, save: r.cost * (m === 'gas' ? 0.04 : 0.05) });
+
+    tips.sort(function (a, b) { return b.save - a.save; });
+    return tips.slice(0, 3);
+  }
+
+  /* ---------------- render ---------------- */
+  function update() {
+    var r = estimate(state.mode, state.area, state.hours, state.temp, state.away);
+    var m = MODE[state.mode];
+
+    /* input labels */
+    $('areaVal').textContent = state.area;
+    $('areaHint').textContent = '전용면적 ' + state.area + '평 · ' +
+      (Math.round(state.area * 3.3058 * 10) / 10) + '㎡';
+    $('hoursVal').textContent = state.hours;
+    $('hoursHint').textContent = '하루 ' + state.hours + '시간';
+    $('tempVal').textContent = state.temp;
+    $('tempHint').textContent = state.temp <= 20 ? state.temp + '°C · 절약 구간'
+      : (state.temp <= 22 ? state.temp + '°C · 권장 구간'
+      : state.temp + '°C · 요금 증가 구간');
+    $('modeHint').textContent = m.hint;
+    $('awayLabel').textContent = state.away ? '사용 중' : '사용 안 함';
+    $('awaySwitch').setAttribute('aria-checked', state.away ? 'true' : 'false');
+    Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-mode') === state.mode ? 'true' : 'false');
+    });
+
+    /* main number */
+    var mainTxt = man(r.cost);
+    var parts = mainTxt.replace('만원', '').split('.');
+    $('mainCost').textContent = parts.join('.');
+    lastCost = r.cost;
+
+    $('verdictMsg').textContent = state.area + '평 · 하루 ' + state.hours + '시간 · ' +
+      state.temp + '°C' + (state.away ? ' · 외출모드 사용' : '') + ' 기준 ' + m.label + ' 예상 금액이에요.';
+
+    /* delta vs last month */
+    var delta = $('delta');
+    if (state.lastBill > 0) {
+      var d = r.cost - state.lastBill;
+      var pct = Math.round((d / state.lastBill) * 100);
+      delta.hidden = false;
+      delta.className = 'delta' + (d > 0 ? ' up' : '');
+      if (Math.abs(d) < 500) {
+        delta.textContent = '지난달 ' + won(state.lastBill) + '원과 비슷해요';
+      } else {
+        delta.textContent = '지난달 ' + won(state.lastBill) + '원 대비 ' +
+          (d > 0 ? '+' : '-') + won(Math.abs(d)) + '원 (' + (pct > 0 ? '+' : '') + pct + '%)';
+      }
+    } else {
+      delta.hidden = true;
+    }
+
+    /* detail */
+    $('detUsageLabel').textContent = m.usageLabel;
+    $('detUsage').textContent = (state.mode === 'electric' ? won(r.usage) : won(r.usage)) + ' ' + m.usageUnit;
+    $('detUnitLabel').textContent = m.unitLabel;
+    $('detUnit').textContent = '약 ' + won(r.unitPrice) + '원';
+    $('detBase').textContent = won(r.baseFee) + '원';
+    $('detTotal').textContent = won(r.cost) + '원';
+
+    /* tips */
+    var tips = buildTips(r);
+    var totalSave = tips.reduce(function (a, t) { return a + t.save; }, 0);
+    var list = $('tipList');
+    list.innerHTML = '';
+    tips.forEach(function (tip, i) {
+      var el = document.createElement('div');
+      el.className = 'tip';
+      var no = document.createElement('span');
+      no.className = 'tip-no';
+      no.textContent = String(i + 1);
+      var body = document.createElement('div');
+      body.className = 'tip-body';
+      var head = document.createElement('div');
+      head.className = 'tip-t';
+      var title = document.createElement('b');
+      title.textContent = tip.t;
+      var save = document.createElement('span');
+      save.className = 'tip-save';
+      save.textContent = '월 -' + won(tip.save) + '원';
+      head.appendChild(title); head.appendChild(save);
+      var desc = document.createElement('p');
+      desc.className = 'tip-d';
+      desc.textContent = tip.d;
+      body.appendChild(head); body.appendChild(desc);
+      el.appendChild(no); el.appendChild(body);
+      list.appendChild(el);
+    });
+    $('tipsTotal').textContent = '3가지 합계 월 -' + won(totalSave) + '원';
+    var pctSave = Math.round((totalSave / r.cost) * 100);
+    $('tipsSub').textContent = '지금 설정 그대로면 이번 달도 ' + man(r.cost) + ' 정도예요. 아래 3가지를 하나씩 따로 적용했을 때의 절감액을 더하면 월 ' +
+      won(totalSave) + '원(약 ' + pctSave + '%)이에요. 두 가지를 같이 하면 효과가 일부 겹칩니다.';
+
+    /* mode comparison */
+    var modes = ['gas', 'district', 'electric'];
+    var rows = modes.map(function (k) {
+      return { key: k, label: MODE[k].label, cost: estimate(k, state.area, state.hours, state.temp, state.away).cost };
+    }).sort(function (a, b) { return a.cost - b.cost; });
+    var maxCost = Math.max.apply(null, rows.map(function (x) { return x.cost; }));
+    var modeList = $('modeList');
+    modeList.innerHTML = '';
+    rows.forEach(function (row) {
+      var wrap = document.createElement('div');
+      wrap.className = 'mc-row';
+      var line = document.createElement('div');
+      line.className = 'mc-line';
+      var name = document.createElement('span');
+      name.className = 'mc-name';
+      name.textContent = row.label;
+      if (row.key === state.mode) {
+        var me = document.createElement('span');
+        me.className = 'me';
+        me.textContent = '내 조건';
+        name.appendChild(me);
+      }
+      var val = document.createElement('span');
+      val.className = 'mc-val';
+      val.textContent = man(row.cost);
+      line.appendChild(name); line.appendChild(val);
+      var track = document.createElement('div');
+      track.className = 'mc-track';
+      var fill = document.createElement('div');
+      fill.className = 'mc-fill ' + row.key;
+      fill.style.width = Math.max(4, Math.round((row.cost / maxCost) * 100)) + '%';
+      track.appendChild(fill);
+      wrap.appendChild(line); wrap.appendChild(track);
+      modeList.appendChild(wrap);
+    });
+    var cheapest = rows[0], my = rows.filter(function (x) { return x.key === state.mode; })[0];
+    if (my.key === cheapest.key) {
+      $('modeFoot').textContent = '같은 조건에서는 ' + cheapest.label + '이 가장 저렴해요. 다만 실제 요금은 기본요금과 지역 단가에 따라 달라집니다.';
+    } else {
+      $('modeFoot').textContent = '같은 조건에서 가장 저렴한 방식은 ' + cheapest.label + ' (' + man(cheapest.cost) + ')이에요. 내 방식과는 월 ' +
+        won(my.cost - cheapest.cost) + '원 차이입니다. 방식은 집에 이미 정해져 있으니 참고만 하세요.';
+    }
+
+    /* sticky */
+    $('sbVal').textContent = man(r.cost);
+
+    save();
+  }
+
+  var lastCost = 0;
+
+  /* ---------------- persistence ---------------- */
+  var saveTimer = null;
+  function save() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+    }, 250);
+  }
+  function load() {
+    var raw = null;
+    try { raw = localStorage.getItem(STORE_KEY); } catch (e) { return; }
+    if (!raw) return;
+    try {
+      var s = JSON.parse(raw);
+      if (!s || typeof s !== 'object') return;
+      if (MODE[s.mode]) state.mode = s.mode;
+      if (typeof s.area === 'number') state.area = clamp(s.area, 10, 50);
+      if (typeof s.hours === 'number') state.hours = clamp(s.hours, 1, 24);
+      if (typeof s.temp === 'number') state.temp = clamp(s.temp, 18, 26);
+      if (typeof s.away === 'boolean') state.away = s.away;
+      if (typeof s.lastBill === 'number') state.lastBill = s.lastBill;
+    } catch (e) {}
+  }
+
+  /* ---------------- bindings ---------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (btn) {
+    btn.addEventListener('click', function () {
+      state.mode = btn.getAttribute('data-mode');
+      update();
+    });
+  });
+
+  function bindRange(id, key, valId) {
+    var el = $(id);
+    el.addEventListener('input', function () {
+      state[key] = clamp(parseInt(el.value, 10) || 0, parseInt(el.min, 10), parseInt(el.max, 10));
+      el.style.setProperty('--fill', ((state[key] - parseInt(el.min, 10)) /
+        (parseInt(el.max, 10) - parseInt(el.min, 10)) * 100) + '%');
+      update();
+    });
+  }
+  bindRange('areaRange', 'area');
+  bindRange('hoursRange', 'hours');
+  bindRange('tempRange', 'temp');
+
+  $('awaySwitch').addEventListener('click', function () {
+    state.away = !state.away;
+    update();
+  });
+
+  var lastBillEl = $('lastBill');
+  lastBillEl.addEventListener('input', function () {
+    var d = digits(lastBillEl.value).slice(0, 9);
+    var n = d === '' ? 0 : parseInt(d, 10);
+    state.lastBill = n;
+    lastBillEl.value = d === '' ? '' : won(n);
+    update();
+  });
+  lastBillEl.addEventListener('blur', function () {
+    if (digits(lastBillEl.value) === '') { state.lastBill = 0; lastBillEl.value = ''; update(); }
+  });
+  lastBillEl.addEventListener('focus', function () { if (lastBillEl.select) lastBillEl.select(); });
+
+  /* ---------------- sticky visibility ---------------- */
+  function initSticky() {
+    var bar = $('stickyBar');
+    var resultEl = document.querySelector('.result-card');
+    var resultVisible = false;
+    function apply() {
+      var show = !resultVisible && window.scrollY > 300;
+      bar.classList.toggle('show', show);
+      bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      $('ctaMob').tabIndex = show ? 0 : -1;
+    }
+    if (!('IntersectionObserver' in window)) {
+      window.addEventListener('scroll', apply, { passive: true });
+      apply();
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { resultVisible = e.isIntersecting; });
+      apply();
+    }, { threshold: 0.25 });
+    io.observe(resultEl);
+    window.addEventListener('scroll', apply, { passive: true });
+    apply();
+  }
+
+  /* ---------------- init ---------------- */
+  load();
+
+  var ar = $('areaRange'), hr = $('hoursRange'), tr = $('tempRange');
+  ar.value = state.area; hr.value = state.hours; tr.value = state.temp;
+  [ar, hr, tr].forEach(function (el) {
+    el.style.setProperty('--fill', ((el.value - el.min) / (el.max - el.min) * 100) + '%');
+  });
+  if (state.lastBill > 0) lastBillEl.value = won(state.lastBill);
+
+  update();
+  initSticky();
+})();
+</script>
+</body>
+</html>
