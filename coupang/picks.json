@@ -1,75 +1,62 @@
-{
- "ok": true,
- "count": 5,
- "limit": 6,
- "disclosure": "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
- "picks": [
-  {
-   "id": "pick-1795821597244",
-   "itemNo": "005",
-   "title": "탐사 차량용 성에방지 커버 (블랙박스 녹화가능 · 보관 가방 포함)",
-   "price": "7,590원 (30% 할인 · 정가 10,900원)",
-   "badge": "무료배송 · 상품평 1,865개",
-   "summary": "블랙박스 투명창 · 누빔 원단 눈·물 차단 · 147×118cm · 보관용 가방 포함",
-   "url": "https://link.coupang.com/a/i16AxHxVIq",
-   "imageUrl": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/234279926950081-63ecc707-1a05-40da-b8fb-bf21ce1458b8.jpg",
-   "date": "2026-11-28",
-   "createdAt": "2026-11-27T23:19:57.244Z"
-  },
-  {
-   "id": "pick-1795785517253",
-   "itemNo": "004",
-   "title": "모던프로 3M 터치 방한 스키장갑 (블랙, M·L·XL)",
-   "price": "12,160원 (46% 할인 · 정가 22,800원)",
-   "badge": "로켓배송 · 리뷰 2,944개",
-   "summary": "3M 신슐레이트 · 생활방수·방풍 · 손끝 터치 · 기모 안감 · 논슬립 그립",
-   "url": "https://link.coupang.com/a/i0ANWnBWVM",
-   "imageUrl": "https://pomf2.lain.la/f/phxdv9rh.jpg",
-   "date": "2026-11-27",
-   "createdAt": "2026-11-27T13:18:37.253Z"
-  },
-  {
-   "id": "pick-1795785517567",
-   "itemNo": "003",
-   "title": "한일의료기 탄소열선 고급 전기요 HL-D205(25) 북극곰 L (135×180cm)",
-   "price": "29,350원 (64% 할인 · 정가 82,300원)",
-   "badge": "로켓배송 · 리뷰 78,453개",
-   "summary": "탄소열선 · 과열방지 타이머 · 통째로 물세탁(워셔블) · 170W · 한 달 1만명+ 구매",
-   "url": "https://link.coupang.com/a/i0wNyptkKi",
-   "imageUrl": "https://pomf2.lain.la/f/icwxii1j.png",
-   "date": "2026-11-27",
-   "createdAt": "2026-11-27T13:18:37.567Z"
-  },
-  {
-   "id": "pick-1795785517946",
-   "itemNo": "002",
-   "title": "홈플래닛 PTC 타워 리모컨 온풍기 (DQ2133R, 화이트)",
-   "price": "39,990원 (63% 할인 · 정가 111,000원)",
-   "badge": "로켓배송 · 리뷰 6,988개",
-   "summary": "1500W PTC 히터 · 리모컨 포함 · 전도 시 자동 전원 차단 · 한 달 4,000명+ 구매",
-   "url": "https://link.coupang.com/a/iZmreAbK6m",
-   "imageUrl": "https://pomf2.lain.la/f/7r0ewf6d.png",
-   "date": "2026-11-26",
-   "createdAt": "2026-11-27T13:18:37.946Z"
-  },
-  {
-   "id": "pick-2026-11-26",
-   "itemNo": "001",
-   "title": "오아 듀얼미스트 미니 휴대용 무선 가습기 (oa-hm048)",
-   "price": "27,900원 (쿠폰 적용 시 25,950원)",
-   "badge": "로켓배송 · 리뷰 13,050개",
-   "summary": "500ml 듀얼미스트 · 충전식 무선 · 물부족 알림 · 저소음 3W",
-   "url": "https://link.coupang.com/a/iZfZlJmv92",
-   "imageUrl": "/images/coupang-oa-hm048.png",
-   "date": "2026-11-26",
-   "createdAt": "2026-11-26T00:00:00.000Z"
-  }
- ],
- "storage": {
-  "seed": 4,
-  "remoteUrl": "https://mememt77-afk.github.io/coupang/picks.json",
-  "remoteOk": true,
-  "remoteCount": 4,
-  "remoteAt": "2026-11-27T22:40:59.725Z"
+[
+ {
+  "itemNo": "007",
+  "title": "펫루미 푹신푹신 반려동물 꿀잠 방석 (대형 75×60cm · 루미그린)",
+  "price": "25,900원 (56% 할인 · 정가 59,900원)",
+  "badge": "로켓배송 · 상품평 1,840개",
+  "summary": "10cm 두께 · 사이드 솜 · 통세탁 커버 · 논슬립 · 4가지 사이즈",
+  "url": "https://link.coupang.com/a/i2SotaNMsK",
+  "date": "2026-11-28",
+  "imageUrl": "https://thumbnail.coupangcdn.com/thumbnails/remote/1000x1000ex/image/vendor_inventory/81bf/b2e536667d5af3a8da28be4255797de9297e7d177f059ee3358bf2122c95.jpg"
+ },
+ {
+  "itemNo": "006",
+  "title": "로이젠 휴대용 USB 컵워머 (베베핑크 · 55도 보온)",
+  "price": "27,600원 (49% 할인 · 정가 55,000원)",
+  "badge": "로켓배송 · 상품평 29개",
+  "summary": "자동 중력 전원 · 55도 유지 · 16W · KC 인증 · USB-C · 3색",
+  "url": "https://link.coupang.com/a/i2Sos5eTV6",
+  "date": "2026-11-28",
+  "imageUrl": "https://thumbnail.coupangcdn.com/thumbnails/remote/1000x1000ex/image/vendor_inventory/2236/31232ad6abca5675fb5c99c1f37b7d88f768d6e5e7f131db87ad27698753.jpg"
+ },
+ {
+  "itemNo": "005",
+  "title": "탐사 차량용 성에방지 커버 (블랙박스 녹화가능 · 보관 가방 포함)",
+  "price": "7,590원 (30% 할인 · 정가 10,900원)",
+  "badge": "무료배송 · 상품평 1,865개",
+  "summary": "블랙박스 투명창 · 누빔 원단 눈·물 차단 · 147×118cm · 보관용 가방 포함",
+  "url": "https://link.coupang.com/a/i16AxHxVIq",
+  "date": "2026-11-28",
+  "imageUrl": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/234279926950081-63ecc707-1a05-40da-b8fb-bf21ce1458b8.jpg"
+ },
+ {
+  "itemNo": "004",
+  "title": "모던프로 3M 터치 방한 스키장갑 (블랙, M·L·XL)",
+  "price": "12,160원 (46% 할인 · 정가 22,800원)",
+  "badge": "로켓배송 · 리뷰 2,944개",
+  "summary": "3M 신슐레이트 · 생활방수·방풍 · 손끝 터치 · 기모 안감 · 논슬립 그립",
+  "url": "https://link.coupang.com/a/i0ANWnBWVM",
+  "date": "2026-11-27",
+  "imageUrl": "https://pomf2.lain.la/f/phxdv9rh.jpg"
+ },
+ {
+  "itemNo": "002",
+  "title": "홈플래닛 PTC 타워 리모컨 온풍기 (DQ2133R, 화이트)",
+  "price": "39,990원 (63% 할인 · 정가 111,000원)",
+  "badge": "로켓배송 · 리뷰 6,988개",
+  "summary": "1500W PTC 히터 · 리모컨 포함 · 전도 시 자동 전원 차단 · 한 달 4,000명+ 구매",
+  "url": "https://link.coupang.com/a/iZmreAbK6m",
+  "date": "2026-11-26",
+  "imageUrl": "https://pomf2.lain.la/f/7r0ewf6d.png"
+ },
+ {
+  "itemNo": "001",
+  "title": "오아 듀얼미스트 미니 휴대용 무선 가습기 (oa-hm048)",
+  "price": "27,900원 (쿠폰 적용 시 25,950원)",
+  "badge": "로켓배송 · 리뷰 13,050개",
+  "summary": "500ml 듀얼미스트 · 충전식 무선 · 물부족 알림 · 저소음 3W",
+  "url": "https://link.coupang.com/a/iZfZlJmv92",
+  "date": "2026-11-26",
+  "imageUrl": "/images/coupang-oa-hm048.png"
  }
-}
+]
