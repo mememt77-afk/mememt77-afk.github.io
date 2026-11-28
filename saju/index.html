@@ -850,7 +850,7 @@
     color: var(--gold-2);
     letter-spacing: -.03em;
   }
-  .price-row s { font-size: 10.5px; color: rgba(148, 143, 131, .8); }
+  .price-row s { font-size: 11px; color: rgba(158, 152, 140, .9); text-decoration-thickness: 1px; }
   .coupon-note { margin: 3px 0 0; font-size: 10px; color: rgba(156, 150, 137, .95); }
   .item-badge { margin: 3px 0 0; font-size: 10px; color: rgba(156, 150, 137, .95); }
 
@@ -1552,7 +1552,7 @@
     return '<div class="' + cls + '">' + inner + '<span class="pillar-tag">' + tag + '</span></div>';
   }
 
-  function renderChart(p) {
+  function renderChart(p, ctx) {
     var chart = document.getElementById('chart');
     chart.innerHTML =
       '<div class="chart-head">시주<small>時柱</small></div>' +
@@ -1564,10 +1564,13 @@
       pillarCell('월주', '月', p.month, false, false) +
       pillarCell('연주', '年', p.year, false, false);
 
-    var yStem = p.year.stem;
+    var dateTxt = ctx.cal === 'lunar'
+      ? '음력 ' + ctx.m + '.' + ctx.d + ' → 양력 ' + ctx.solar.m + '.' + ctx.solar.d
+      : '양력 ' + ctx.solar.y + '.' + ctx.solar.m + '.' + ctx.solar.d;
+    var timeTxt = ctx.hour === null ? '시간 모름' : BRANCHES[ctx.hour] + '시';
     document.getElementById('summaryLine').textContent =
-      STEMS[p.day.stem] + ' ' + EL[STEM_EL[p.day.stem]].hanja + ' 일간 · ' +
-      BRANCHES[p.year.branch] + '(' + ZODIAC[p.year.branch] + ')띠 · ' + p.sajuYear + '년 ' + STEMS[yStem] + BRANCHES[p.year.branch] + '년생';
+      dateTxt + ' ' + timeTxt + ' · ' + STEMS[p.day.stem] + '(' + EL[STEM_EL[p.day.stem]].hanja + ') 일간 · ' +
+      ZODIAC[p.year.branch] + '띠 · ' + STEMS[p.year.stem] + BRANCHES[p.year.branch] + '년생';
 
     var trait = document.getElementById('traitBox');
     trait.querySelector('.mk').textContent = '日干';
@@ -1764,11 +1767,11 @@
 
     var state = {
       y: y, m: m, d: d, cal: cal, gender: gender, hour: hourBranch,
-      key: y + '-' + m + '-' + d + '-' + (hourBranch === null ? 'x' : hourBranch)
+      key: solar.y + '-' + solar.m + '-' + solar.d + '-' + (hourBranch === null ? 'x' : hourBranch)
     };
     lastState = state;
 
-    renderChart(pillars);
+    renderChart(pillars, { cal: cal, hour: hourBranch, solar: solar, m: m, d: d });
     var bal = renderOhaeng(counts);
     bal.todayLabel = info.label;
 
