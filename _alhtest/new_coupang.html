@@ -183,8 +183,8 @@ button { font: inherit; color: inherit; }
   transition: border-color .25s ease;
 }
 .site-head.is-scrolled { border-bottom-color: var(--line); }
-.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.04em; font-size: 16px; }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.04em; font-size: 16px; min-width: 0; flex: 0 1 auto; }
 .brand-mark {
   width: 26px; height: 26px; border-radius: 9px;
   background: linear-gradient(140deg, #ff6a2a, #ffb020);
@@ -192,7 +192,12 @@ button { font: inherit; color: inherit; }
   box-shadow: 0 4px 10px -4px rgba(255,90,31,.8);
 }
 .brand-mark svg { width: 15px; height: 15px; }
-.brand-sub { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+.brand-sub { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0; white-space: nowrap; }
+@media (max-width: 420px) {
+  .brand { gap: 6px; font-size: 15px; }
+  .brand-mark { width: 23px; height: 23px; border-radius: 8px; }
+  .brand-sub { font-size: 10.4px; }
+}
 .nav { display: none; gap: 4px; }
 .nav a {
   font-size: 13.5px; font-weight: 600; color: var(--ink-2);
@@ -271,7 +276,7 @@ button { font: inherit; color: inherit; }
   background: linear-gradient(90deg, var(--brand), var(--brand-2));
 }
 /* 좌: 상품 사진 · 우: 정보/버튼 */
-.pick-body { display: flex; align-items: stretch; gap: 18px; flex: 1 1 auto; }
+.pick-body { display: flex; align-items: stretch; gap: 18px; flex: 1 1 auto; min-width: 0; }
 .pick-media {
   flex: 0 0 auto;
   width: 160px; height: 160px;
@@ -310,10 +315,10 @@ button { font: inherit; color: inherit; }
 .pick-price strong { font-size: 21px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); }
 .pick-price-sub { font-size: 12.5px; font-weight: 600; color: var(--muted); }
 .pick-summary { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
-/* 구매 버튼은 카드 맨 아래에 붙어 같은 행의 카드끼리 Y좌표가 일치한다 */
-.pick-cta { margin-top: auto; min-height: 50px; font-size: 15px; }
+/* 구매 버튼은 카드 맨 아래에 붙어 같은 행의 카드끼리 Y좌표가 일치하고, 카드 폭을 넘지 않는다 */
+.pick-cta { margin-top: auto; min-height: 50px; font-size: 15px; box-sizing: border-box; max-width: 100%; }
 @media (max-width: 719px) { .pick-cta { width: 100%; } }
-@media (min-width: 720px) { .pick-info .pick-cta { align-self: flex-start; min-width: 260px; } }
+@media (min-width: 720px) { .pick-info .pick-cta { align-self: stretch; min-width: 0; } }
 .picks-grid > .pick-cta { margin-top: 4px; }
 .picks-note { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
 .picks-foot { margin-top: 18px; max-width: 860px; }
