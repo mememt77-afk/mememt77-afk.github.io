@@ -61,8 +61,8 @@
     --line-soft: rgba(255, 255, 255, .07);
 
     --ink: #F4F0E6;
-    --ink-2: #CFC9BB;
-    --muted: #948F83;
+    --ink-2: #D7D1C3;
+    --muted: #9C9689;
 
     --mok: #59C39A;
     --hwa: #E9775E;
@@ -180,15 +180,16 @@
   }
   h1 em {
     font-style: normal;
-    background: linear-gradient(180deg, #FBEDC6 8%, #E3B86A 55%, #C2913F 100%);
+    background: linear-gradient(100deg, #F9E8BF 0%, #EDCE93 34%, #E3B86A 62%, #C08F3E 100%);
     -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
   .lede {
-    margin: 10px auto 0;
-    max-width: 30ch;
+    margin: 11px auto 0;
+    max-width: 25em;
     font-size: 13.5px;
     line-height: 1.7;
     color: var(--ink-2);
@@ -214,12 +215,12 @@
   .panel::before, .panel::after {
     content: '';
     position: absolute;
-    width: 16px; height: 16px;
+    width: 13px; height: 13px;
     border: 1px solid rgba(227, 184, 106, .55);
     pointer-events: none;
   }
-  .panel::before { top: 8px; left: 8px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
-  .panel::after { bottom: 8px; right: 8px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
+  .panel::before { top: 6px; left: 6px; border-right: 0; border-bottom: 0; border-radius: 6px 0 0 0; }
+  .panel::after { bottom: 6px; right: 6px; border-left: 0; border-top: 0; border-radius: 0 0 6px 0; }
 
   .panel-head {
     display: flex;
@@ -378,7 +379,7 @@
   }
 
   /* ---------- result ---------- */
-  .result { margin-top: 34px; animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; }
+  .result { margin-top: 34px; scroll-margin-top: 14px; animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
   .section-head { margin: 30px 0 14px; text-align: center; }
@@ -395,7 +396,7 @@
   .section-head h2 {
     margin: 0;
     font-family: var(--serif);
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 600;
     letter-spacing: -.01em;
     color: var(--ink);
@@ -472,7 +473,7 @@
   .char b {
     font-family: var(--serif);
     font-weight: 600;
-    font-size: 23px;
+    font-size: 24px;
     line-height: 1.1;
     color: var(--el);
     text-shadow: 0 0 14px color-mix(in srgb, var(--el) 45%, transparent);
@@ -532,7 +533,7 @@
   }
   .bar-row {
     display: grid;
-    grid-template-columns: 78px 1fr 44px;
+    grid-template-columns: 58px 1fr 42px;
     align-items: center;
     gap: 10px;
     margin-bottom: 11px;
@@ -564,18 +565,8 @@
   }
   .bar-val { font-size: 11.5px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
   .bar-row.is-lack .bar-label { color: var(--gold-2); }
-  .bar-row.is-lack .bar-label::after {
-    content: '부족';
-    font-family: var(--sans);
-    font-size: 9px;
-    font-weight: 700;
-    color: #2A1F08;
-    background: linear-gradient(180deg, #F1D79E, #D8B06A);
-    border-radius: 999px;
-    padding: 1px 6px;
-    margin-left: 4px;
-    letter-spacing: 0;
-  }
+  .bar-row.is-lack .bar-val { color: var(--gold-2); font-weight: 700; }
+  .bar-row.is-lack .bar-track { box-shadow: inset 0 0 0 1px rgba(227, 184, 106, .3); }
   .bar-row.is-lack .bar-fill { box-shadow: 0 0 16px 0 color-mix(in srgb, var(--el) 75%, transparent); }
 
   /* fortune */
@@ -650,7 +641,16 @@
     background: rgba(255, 255, 255, .03);
     border: 1px solid var(--line-soft);
   }
-  .f-ico { font-size: 17px; line-height: 1; text-align: center; }
+  .f-ico {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    line-height: 1;
+    background: rgba(227, 184, 106, .1);
+    border: 1px solid rgba(227, 184, 106, .18);
+  }
   .f-body { min-width: 0; }
   .f-body h4 {
     margin: 0;
@@ -851,7 +851,8 @@
     letter-spacing: -.03em;
   }
   .price-row s { font-size: 10.5px; color: rgba(148, 143, 131, .8); }
-  .coupon-note { margin: 3px 0 0; font-size: 10px; color: rgba(148, 143, 131, .95); }
+  .coupon-note { margin: 3px 0 0; font-size: 10px; color: rgba(156, 150, 137, .95); }
+  .item-badge { margin: 3px 0 0; font-size: 10px; color: rgba(156, 150, 137, .95); }
 
   .buy {
     display: flex;
@@ -1052,7 +1053,7 @@
 
     <p class="eyebrow">재미로 보는 오늘의 운세</p>
     <h1>오늘의 <em>사주</em> &amp; <em>행운템</em></h1>
-    <p class="lede">생년월일만 넣으면 사주 명식과 오행 밸런스,<br>오늘을 채워줄 개운템까지 한 번에.</p>
+    <p class="lede">생년월일만 넣으면 사주 명식과 오행 밸런스,<br>오늘의 운세와 개운템까지 한 번에.</p>
   </header>
 
   <main>
@@ -1138,7 +1139,7 @@
       </div>
       <div class="chart" id="chart"></div>
       <div class="trait" id="traitBox">
-        <span class="mk">己</span>
+        <span class="mk">日干</span>
         <div id="traitText"></div>
       </div>
 
@@ -1569,7 +1570,7 @@
       BRANCHES[p.year.branch] + '(' + ZODIAC[p.year.branch] + ')띠 · ' + p.sajuYear + '년 ' + STEMS[yStem] + BRANCHES[p.year.branch] + '년생';
 
     var trait = document.getElementById('traitBox');
-    trait.querySelector('.mk').textContent = STEMS[p.day.stem];
+    trait.querySelector('.mk').textContent = '日干';
     document.getElementById('traitText').innerHTML =
       '<strong>' + STEMS[p.day.stem] + '(' + EL[STEM_EL[p.day.stem]].hanja + ') 일간</strong> — ' + STEM_TRAIT[STEMS[p.day.stem]] +
       (p.hour ? '' : '<br><span style="color:var(--muted)">태어난 시간을 모르면 시주를 뺀 6글자로 봅니다.</span>');
@@ -1697,6 +1698,7 @@
         '<h3>' + escapeHtml(p.title) + '</h3>' +
         (p.summary ? '<p class="sum">' + escapeHtml(p.summary) + '</p>' : '') +
         '<div class="price-row"><strong>' + price + '</strong>' + (listPrice ? '<s>' + listPrice + '</s>' : '') + '</div>' +
+        (p.badge ? '<p class="item-badge">' + escapeHtml(p.badge) + '</p>' : '') +
         (p.couponNote ? '<p class="coupon-note">' + escapeHtml(p.couponNote) + '</p>' : '') +
         '<a class="buy" href="' + p.url + '" target="_blank" rel="noopener sponsored" data-item="' + escapeAttr(p.title) + '" data-element="' + el + '"><span>오늘의 행운템 보러가기 👉</span></a>' +
       '</div>' +
