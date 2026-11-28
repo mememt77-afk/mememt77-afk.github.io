@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<script>/*ALHTEST*/(function(){var of=window.fetch.bind(window);window.fetch=function(u,o){var s=String(u);if(s.indexOf('/api/coupang-picks')>-1){return of('picks_owl.json');}return of(u,o);};})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff8f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="혜택연구소가 매일 아침 새로 고르는 오늘의 쿠팡 추천템. 생활에 바로 쓸 만한 아이템을 하루 한 건씩 골라 소개합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="오늘의 쿠팡 추천템 | 혜택연구소">
+<meta property="og:description" content="매일 아침 새로 고르는 생활 아이템. 오늘의 쿠팡 추천템을 확인하세요.">
+<meta name="robots" content="index,follow">
+<title>오늘의 쿠팡 추천템 | 혜택연구소</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff5a1f'/%3E%3Cstop offset='1' stop-color='%23ffb020'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M17 33.5l9 9 21-22' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>document.documentElement.className += ' js';</script>
+<style>
+/* ============================================================
+   01. 토큰 & 기본
+   ============================================================ */
+:root {
+  --font: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+          "Noto Sans KR", "Malgun Gothic", "Segoe UI", Roboto, sans-serif;
+
+  --bg:        #fbf9f6;
+  --bg-tint:   #f4efe8;
+  --surface:   #ffffff;
+  --surface-2: #f8f5f0;
+  --ink:       #14161a;
+  --ink-2:     #3d434e;
+  --muted:     #6d7480;
+  --line:      #e9e3da;
+  --line-2:    #f1ece4;
+
+  --brand:     #ff5a1f;
+  --brand-2:   #ffb020;
+  --brand-deep:#c33c06;
+  --brand-wash:#fff1e8;
+  --mint:      #0e9f8a;
+  --mint-wash: #e6f7f3;
+
+  --shadow-sm: 0 1px 2px rgba(20,22,26,.06), 0 2px 8px rgba(20,22,26,.04);
+  --shadow:    0 6px 20px rgba(20,22,26,.07), 0 22px 48px -18px rgba(20,22,26,.18);
+
+  --r-xl: 28px;
+  --r-lg: 22px;
+  --r-md: 16px;
+  --r-sm: 12px;
+
+  --maxw: 1060px;
+  --pad: 20px;
+  --head-h: 58px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0f1115;
+    --bg-tint:   #14171d;
+    --surface:   #181b22;
+    --surface-2: #1f232b;
+    --ink:       #f2f4f8;
+    --ink-2:     #d3d8e2;
+    --muted:     #9aa3b2;
+    --line:      #2b3038;
+    --line-2:    #242830;
+    --brand-wash:#2a1a12;
+    --mint-wash: #10241f;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.3);
+    --shadow:    0 8px 24px rgba(0,0,0,.45), 0 24px 50px -20px rgba(0,0,0,.7);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+h1, h2, h3, h4, p, ul, ol, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+
+/* ============================================================
+   02. 공통 요소
+   ============================================================ */
+.sec { padding: 44px 0 56px; position: relative; }
+.sec-head { margin-bottom: 24px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .02em;
+  color: var(--brand-deep);
+  background: var(--brand-wash);
+  border-radius: 999px; padding: 6px 12px;
+  margin-bottom: 12px;
+}
+@media (prefers-color-scheme: dark) { .eyebrow { color: #ffab7d; } }
+.sec-title {
+  font-size: clamp(23px, 5.6vw, 34px);
+  line-height: 1.26; letter-spacing: -0.035em; font-weight: 800;
+}
+.sec-title em { font-style: normal; color: var(--brand); }
+.lead {
+  margin-top: 10px; color: var(--muted);
+  font-size: 14.5px; line-height: 1.65; max-width: 52ch;
+}
+
+.btn {
+  --btn-bg: var(--surface);
+  --btn-fg: var(--ink);
+  --btn-bd: var(--line);
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 0 22px;
+  border: 1px solid var(--btn-bd);
+  border-radius: 999px;
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  -webkit-tap-highlight-color: transparent;
+  text-align: center;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn:active { transform: scale(.975); }
+.btn-primary {
+  --btn-bg: linear-gradient(135deg, #ff6224 0%, #f24a10 55%, #e03c05 100%);
+  --btn-fg: #fff;
+  --btn-bd: transparent;
+  box-shadow: 0 10px 24px -10px rgba(255,90,31,.75), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.btn-primary:hover { box-shadow: 0 14px 30px -10px rgba(255,90,31,.85), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-ghost { --btn-bg: transparent; --btn-fg: var(--ink-2); }
+.btn-ghost:hover { --btn-bg: var(--surface-2); }
+.btn-sm { min-height: 42px; padding: 0 16px; font-size: 14px; }
+.btn-block { width: 100%; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 쿠팡 파트너스 대가성 문구 */
+.disclosure {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 12px; line-height: 1.55; color: var(--muted);
+  background: var(--surface-2);
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+}
+.disclosure svg { width: 15px; height: 15px; flex: none; margin-top: 2px; color: var(--mint); }
+
+/* ============================================================
+   03. 헤더
+   ============================================================ */
+.site-head {
+  position: sticky; top: 0; z-index: 40;
+  height: var(--head-h);
+  display: flex; align-items: center;
+  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease;
+}
+.site-head.is-scrolled { border-bottom-color: var(--line); }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.04em; font-size: 16px; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 9px;
+  background: linear-gradient(140deg, #ff6a2a, #ffb020);
+  display: grid; place-items: center; color: #fff;
+  box-shadow: 0 4px 10px -4px rgba(255,90,31,.8);
+}
+.brand-mark svg { width: 15px; height: 15px; }
+.brand-sub { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
+.nav { display: none; gap: 4px; }
+.nav a {
+  font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+  padding: 8px 12px; border-radius: 999px;
+}
+.nav a:hover { background: var(--surface-2); }
+.head-cta { display: none; }
+
+@media (min-width: 860px) {
+  :root { --head-h: 68px; --pad: 32px; }
+  .nav { display: flex; }
+  .head-cta { display: inline-flex; }
+  .brand { font-size: 17px; }
+}
+
+/* ============================================================
+   04. 히어로
+   ============================================================ */
+.hero { padding: 30px 0 8px; position: relative; overflow: hidden; }
+.hero::before {
+  content: ''; position: absolute; inset: -40% 0 auto 0; height: 520px; z-index: -1;
+  background:
+    radial-gradient(52% 46% at 22% 34%, rgba(255,90,31,.16), transparent 70%),
+    radial-gradient(46% 46% at 82% 18%, rgba(255,176,32,.18), transparent 72%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 12.5px; font-weight: 700; color: var(--ink-2);
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 13px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 3px var(--mint-wash); }
+.hero h1 {
+  margin-top: 16px;
+  font-size: clamp(28px, 7.4vw, 46px);
+  line-height: 1.2; letter-spacing: -0.045em; font-weight: 800;
+  word-break: keep-all;
+}
+.hero h1 .grad {
+  background: linear-gradient(115deg, var(--brand) 10%, var(--brand-2) 92%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub { margin-top: 14px; color: var(--ink-2); font-size: 15px; line-height: 1.7; max-width: 48ch; word-break: keep-all; }
+.hero-meta { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; font-weight: 600; color: var(--ink-2);
+  background: var(--surface-2); border: 1px solid var(--line-2);
+  border-radius: 999px; padding: 5px 11px;
+}
+
+/* ============================================================
+   05. 추천템 카드
+   ============================================================ */
+.picks-grid {
+  display: grid; gap: 14px;
+  grid-template-columns: 1fr;
+  max-width: 860px;
+}
+@media (min-width: 720px) {
+  .picks-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+}
+.pick {
+  position: relative;
+  padding: 18px 18px 16px;
+  border-radius: var(--r-lg);
+  display: flex; flex-direction: column; gap: 9px;
+  overflow: hidden;
+}
+.pick::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+/* 좌: 상품 사진 · 우: 정보/버튼 */
+.pick-body { display: flex; align-items: flex-start; gap: 18px; }
+.pick-media {
+  flex: 0 0 auto;
+  width: 160px; height: 160px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line-2);
+  box-shadow: 0 10px 22px -18px rgba(20,22,26,.55);
+}
+.pick-img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pick-media.is-empty { display: none; }
+.pick-info { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+@media (max-width: 719px) {
+  /* 모바일: 카드 상단 컴팩트 썸네일 */
+  .pick { padding: 14px 14px 13px; }
+  .pick-body { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pick-media { width: 100%; height: 148px; }
+  .pick-img { object-fit: contain; }
+}
+/* 카드가 2장 이상인 2단 구성에서는 사진을 한 단계 작게 */
+@media (min-width: 720px) {
+  .picks-grid.is-multi .pick-media { width: 136px; height: 136px; }
+  .picks-grid.is-multi .pick-body { gap: 16px; }
+}
+.pick-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pick-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--brand-deep); background: var(--brand-wash);
+  border-radius: 999px; padding: 5px 10px;
+}
+@media (prefers-color-scheme: dark) { .pick-badge { color: #ffab7d; } }
+.pick-date { margin-left: auto; font-size: 11.5px; font-weight: 700; color: var(--muted); }
+.pick-title { font-size: 17px; font-weight: 800; line-height: 1.42; letter-spacing: -0.03em; word-break: keep-all; }
+.pick-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; }
+.pick-price strong { font-size: 21px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); }
+.pick-price-sub { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.pick-summary { font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
+.pick-cta { margin-top: auto; min-height: 50px; font-size: 15px; }
+@media (max-width: 719px) { .pick-cta { width: 100%; } }
+@media (min-width: 720px) { .pick-info .pick-cta { align-self: flex-start; min-width: 260px; } }
+.picks-grid > .pick-cta { margin-top: 4px; }
+.picks-note { margin-top: 14px; font-size: 12.5px; color: var(--muted); }
+.picks-foot { margin-top: 18px; max-width: 860px; }
+
+/* 상품번호 배지 */
+.pick-head { display: flex; align-items: center; gap: 8px; }
+.pick-no {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 13.5px; font-weight: 800; letter-spacing: .03em;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6224 0%, #f24a10 55%, #e03c05 100%);
+  border-radius: 10px; padding: 5px 12px;
+  box-shadow: 0 8px 18px -12px rgba(255,90,31,.95), inset 0 1px 0 rgba(255,255,255,.28);
+}
+
+.pick-no-line {
+  font-size: 12.6px; font-weight: 700; color: var(--muted);
+  display: flex; align-items: center; gap: 6px; margin: -2px 0 -2px;
+}
+.pick-no-line b {
+  font-size: 13.6px; font-weight: 800; letter-spacing: .04em;
+  font-variant-numeric: tabular-nums; color: var(--brand-deep);
+}
+@media (prefers-color-scheme: dark) { .pick-no-line b { color: #ffab7d; } }
+
+/* 상품번호·상품명 검색 */
+.picks-search { position: relative; max-width: 540px; margin: 0 0 18px; }
+.picks-search .search-icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  width: 19px; height: 19px; color: var(--muted); pointer-events: none;
+}
+.picks-search input {
+  width: 100%; min-height: 52px;
+  padding: 0 48px 0 45px;
+  font: inherit; font-size: 15px; font-weight: 600;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  -webkit-appearance: none; appearance: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.picks-search input::placeholder { color: var(--muted); font-weight: 500; }
+@media (max-width: 430px) {
+  .picks-search input { font-size: 13.6px; padding: 0 46px 0 42px; }
+  .picks-search .search-icon { left: 14px; width: 17px; height: 17px; }
+}
+.picks-search input::-webkit-search-cancel-button,
+.picks-search input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+.picks-search input:focus {
+  outline: none; border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--brand-wash);
+}
+.picks-search .search-clear {
+  position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+  width: 34px; height: 34px; padding: 0;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: var(--surface-2); color: var(--muted);
+  font-size: 15px; line-height: 1; cursor: pointer;
+}
+.picks-search .search-clear:hover { color: var(--ink); }
+.picks-empty {
+  max-width: 860px; margin: 0;
+  padding: 26px 20px; text-align: center;
+  color: var(--muted); font-size: 14.5px; line-height: 1.6;
+  background: var(--surface); border: 1px dashed var(--line);
+  border-radius: var(--r-lg);
+}
+
+/* ============================================================
+   06. 푸터
+   ============================================================ */
+.site-foot {
+  padding: 34px 0 calc(40px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--bg-tint);
+  margin-top: 28px;
+}
+.foot-top { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: flex-start; }
+.foot-brand { display: flex; align-items: center; gap: 9px; font-weight: 800; letter-spacing: -0.03em; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.foot-links a {
+  font-size: 13px; font-weight: 600; color: var(--ink-2);
+  padding: 7px 12px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.foot-links a:hover { border-color: color-mix(in srgb, var(--brand) 40%, var(--line)); color: var(--brand-deep); }
+.foot-legal { margin-top: 20px; font-size: 11.5px; color: var(--muted); line-height: 1.65; }
+
+/* ============================================================
+   07. 등장 효과
+   ============================================================ */
+.js .reveal { opacity: 0; transform: translateY(14px); }
+.js .reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity .55s cubic-bezier(.2,.7,.3,1), transform .55s cubic-bezier(.2,.7,.3,1);
+}
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- 아이콘 스프라이트 -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 12.5l4.8 4.8L19.5 6.9"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 12h14"/><path d="M13 6.2l5.8 5.8-5.8 5.8"/>
+  </symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.4 9.8h17.2V20H3.4z"/><path d="M2.6 9.8l1.8-5.4h15.2l1.8 5.4"/><path d="M9.8 20v-5.6h4.4V20"/>
+  </symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="7"/><path d="M16.2 16.2L21 21"/>
+  </symbol>
+</svg>
+
+<header class="site-head" id="siteHead">
+  <div class="wrap">
+    <a class="brand" href="/coupang" aria-label="혜택연구소 쿠팡 추천템 처음으로">
+      <span class="brand-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+      <span>혜택연구소</span>
+      <span class="brand-sub">@owl.31011625</span>
+    </a>
+    <nav class="nav" aria-label="바로가기">
+      <a href="#picks">오늘의 추천템</a>
+      <a href="https://www.instagram.com/owl.31011625/" target="_blank" rel="noopener noreferrer">@owl.31011625</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= 히어로 ================= -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <span class="hero-badge"><i class="dot" aria-hidden="true"></i> @owl.31011625 전용 · 매일 아침 새로 고르는 아이템</span>
+      <h1 id="heroTitle">🔥 @owl.31011625<br><span class="grad">오늘의 쿠팡 추천템</span></h1>
+      <p class="hero-sub">@owl.31011625에서 소개하는 상품만 모았어요. 추천템을 하루 한 건씩 골라 담고, 가격과 스펙을 한눈에 정리합니다.</p>
+      <div class="hero-meta">
+        <span class="chip">🚀 로켓배송 위주</span>
+        <span class="chip">🏷️ 쿠폰가 함께 표기</span>
+        <span class="chip">📅 하루 1건 업데이트</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 추천템 목록 ================= -->
+  <section class="sec" id="picks" aria-labelledby="picksTitle">
+    <div class="wrap">
+      <header class="sec-head reveal">
+        <span class="eyebrow">오늘의 추천</span>
+        <h2 class="sec-title" id="picksTitle">오늘 고른 <em>아이템</em></h2>
+        <p class="lead">표기 가격은 올린 날 기준이라 쿠폰·재고에 따라 달라질 수 있어요. 구매 버튼을 누르면 쿠팡 상품 페이지로 이동합니다.</p>
+      </header>
+
+      <div class="picks-search">
+        <svg class="search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <label for="pickSearch" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">상품번호 또는 상품명으로 검색</label>
+        <input id="pickSearch" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+               placeholder="상품번호(예: 001) 또는 상품명으로 검색" aria-describedby="pickSearchHelp">
+        <button type="button" class="search-clear" aria-label="검색어 지우기" hidden>✕</button>
+      </div>
+      <p class="picks-note" id="pickSearchHelp" style="margin-top:-6px;margin-bottom:14px">번호는 <b>001</b>처럼 세 자리로 적혀 있고, <b>1</b>만 쳐도 찾아집니다.</p>
+
+      <div class="picks-grid" id="pickList" aria-live="polite">
+        <noscript><p class="pick-summary">추천템 목록을 보려면 브라우저의 자바스크립트를 켜 주세요.</p></noscript>
+      </div>
+
+      <p class="picks-empty" id="pickEmpty" role="status" hidden></p>
+
+      <p class="picks-note">※ 쿠팡 파트너스 활동으로 일정액의 수수료를 받을 수 있으며, 구매 가격에는 영향을 주지 않습니다.</p>
+
+      <p class="disclosure picks-foot">
+        <svg aria-hidden="true"><use href="#i-info"/></svg>
+        <span>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brand-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+        <span>혜택연구소</span>
+      </div>
+      <nav class="foot-links" aria-label="바닥글 링크">
+        <a href="https://www.instagram.com/owl.31011625/" target="_blank" rel="noopener noreferrer">@owl.31011625</a>
+        <a href="#picks">오늘의 추천템</a>
+      </nav>
+    </div>
+    <p class="foot-legal">
+      혜택연구소 · @owl.31011625 · 오늘의 쿠팡 추천템<br>
+      상품 정보와 가격은 판매처 사정에 따라 예고 없이 바뀔 수 있으며, 최종 가격·배송 조건은 쿠팡 상품 페이지에서 확인하세요.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
+
+  /* --------------------------------------------------------------
+     오늘의 쿠팡 추천템 렌더
+     /api/coupang-picks 를 불러와 카드로 그리고,
+     실패하면 페이지에 내장된 기본 1건을 그대로 보여줍니다.
+     -------------------------------------------------------------- */
+  var PICK_FALLBACK = [{
+    itemNo: '001',
+    channel: 'owl',
+    title: '오아 듀얼미스트 미니 휴대용 무선 가습기 (oa-hm048)',
+    price: '27,900원 (쿠폰 적용 시 25,950원)',
+    badge: '로켓배송 · 리뷰 13,050개',
+    summary: '500ml 듀얼미스트 · 충전식 무선 · 물부족 알림 · 저소음 3W',
+    url: 'https://link.coupang.com/a/iZfZlJmv92',
+    imageUrl: '/images/coupang-oa-hm048.png',
+    date: '2026-11-26'
+  }];
+
+  function pickText(tag, cls, text) {
+    var el = document.createElement(tag);
+    if (cls) el.className = cls;
+    if (text) el.textContent = text;
+    return el;
+  }
+
+  function pickDateLabel(value) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(value || ''));
+    if (!m) return '';
+    return Number(m[2]) + '. ' + Number(m[3]) + '.';
+  }
+
+  function renderPicks(list) {
+    var box = $('#pickList');
+    if (!box) return;
+    box.textContent = '';
+    var items = (list || []).filter(function (p) { return p && p.title; }).slice(0, 50);
+    box.classList.toggle('is-multi', items.length > 1);
+    items.forEach(function (p) {
+      if (!p || !p.title) return;
+
+      var card = document.createElement('article');
+      card.className = 'pick card';
+
+      var head = pickText('div', 'pick-head');
+      var no = String(p.itemNo || '').trim();
+      if (no) head.appendChild(pickText('span', 'pick-no', 'No.' + no));
+      var stamp = pickDateLabel(p.date);
+      if (stamp) head.appendChild(pickText('span', 'pick-date', stamp));
+      if (head.firstChild) card.appendChild(head);
+
+      var body = pickText('div', 'pick-body');
+
+      if (p.imageUrl) {
+        var media = pickText('div', 'pick-media');
+        var img = document.createElement('img');
+        img.className = 'pick-img';
+        img.src = p.imageUrl;
+        img.alt = p.title + ' 상품 사진';
+        img.width = 160;
+        img.height = 160;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.onerror = function () { media.classList.add('is-empty'); };
+        media.appendChild(img);
+        body.appendChild(media);
+      }
+
+      var info = pickText('div', 'pick-info');
+
+      if (no) {
+        var noLine = pickText('p', 'pick-no-line');
+        noLine.appendChild(document.createTextNode('상품번호'));
+        noLine.appendChild(pickText('b', '', 'No. ' + no));
+        info.appendChild(noLine);
+      }
+
+      if (p.badge) {
+        var top = pickText('div', 'pick-top');
+        top.appendChild(pickText('span', 'pick-badge', p.badge));
+        info.appendChild(top);
+      }
+
+      info.appendChild(pickText('h3', 'pick-title', p.title));
+
+      if (p.price) {
+        var price = pickText('p', 'pick-price');
+        var m = /^(.*?원)\s*(\(.+\))?\s*$/.exec(String(p.price));
+        price.appendChild(pickText('strong', '', m ? m[1] : String(p.price)));
+        if (m && m[2]) price.appendChild(pickText('span', 'pick-price-sub', m[2]));
+        info.appendChild(price);
+      }
+
+      if (p.summary) info.appendChild(pickText('p', 'pick-summary', p.summary));
+
+      if (/^https:\/\//i.test(String(p.url || ''))) {
+        var cta = pickText('a', 'btn btn-primary pick-cta', '최저가·구매 바로가기 👉');
+        cta.href = p.url;
+        cta.target = '_blank';
+        cta.rel = 'noopener noreferrer';
+        info.appendChild(cta);
+      }
+
+      body.appendChild(info);
+      card.appendChild(body);
+
+      box.appendChild(card);
+    });
+  }
+
+  /* --------------------------------------------------------------
+     상품번호 / 상품명 검색
+     - 번호는 "001"은 물론 "1", "No.1", "1번"으로 쳐도 찾아진다.
+     - 검색어가 없으면 전체 표시, 결과가 없으면 안내 문구를 보여준다.
+     -------------------------------------------------------------- */
+  var allPicks = [];
+
+  function normalizeQuery(value) {
+    return String(value || '').replace(/\s+/g, '').toLowerCase();
+  }
+
+  function pickMatches(pick, query) {
+    if (!query) return true;
+    var no = String(pick.itemNo || '').trim();
+    var m = /^(?:no\.?|#)?(\d{1,3})(?:번|호)?$/.exec(query);
+    if (m) {
+      if (!no) return false;
+      var digits = m[1];
+      return Number(no) === Number(digits) || no.indexOf(digits) === 0;
+    }
+    var hay = [pick.title, pick.summary, pick.badge, pick.price, no]
+      .join(' ')
+      .toLowerCase();
+    return hay.indexOf(query) !== -1 || hay.replace(/\s+/g, '').indexOf(query) !== -1;
+  }
+
+  function applyFilter() {
+    var input = $('#pickSearch');
+    var raw = input ? input.value : '';
+    var query = normalizeQuery(raw);
+    var list = allPicks.filter(function (p) { return pickMatches(p, query); });
+    renderPicks(list);
+
+    var empty = $('#pickEmpty');
+    if (empty) {
+      var showEmpty = Boolean(query) && list.length === 0;
+      empty.hidden = !showEmpty;
+      if (showEmpty) {
+        empty.textContent = '“' + String(raw).trim() + '”에 해당하는 상품이 없습니다. 상품번호(예: 001)나 상품명을 다시 확인해 주세요.';
+      }
+    }
+
+    var clear = $('.picks-search .search-clear');
+    if (clear) clear.hidden = !(input && input.value);
+  }
+
+  // 이 화면은 @owl.31011625 전용이다. 서버가 ?channel=owl 로 거르지만,
+  // 응답에 다른 채널이 섞여 와도 화면에는 절대 올리지 않는다.
+  function setPicks(list) {
+    var own = (Array.isArray(list) ? list : []).filter(function (p) {
+      return p && p.title && String(p.channel || '') === 'owl';
+    });
+    allPicks = (own.length ? own : PICK_FALLBACK).slice();
+    applyFilter();
+  }
+
+  (function bindSearch() {
+    var input = $('#pickSearch');
+    if (!input) return;
+    input.addEventListener('input', applyFilter);
+    input.addEventListener('search', applyFilter);
+    var clear = $('.picks-search .search-clear');
+    if (clear) {
+      clear.addEventListener('click', function () {
+        input.value = '';
+        applyFilter();
+        input.focus();
+      });
+    }
+  })();
+
+  (function loadPicks() {
+    if (!$('#pickList')) return;
+    if (typeof window.fetch !== 'function') { setPicks(PICK_FALLBACK); return; }
+    window.fetch('/api/coupang-picks?channel=owl', { headers: { 'Accept': 'application/json' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        setPicks((data && data.picks) || []);
+      })
+      .catch(function () { setPicks(PICK_FALLBACK); });
+  })();
+
+  /* --------------------------------------------------------------
+     스크롤 등장 + 헤더 상태
+     -------------------------------------------------------------- */
+  var reveals = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function (el) { io.observe(el); });
+    window.setTimeout(function () {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }, 2600);
+  } else {
+    reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  var head = $('#siteHead');
+  function onScroll() {
+    if (!head) return;
+    head.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="https://i.replit.com/script.js" async="" data-website-id="85bd6aae-12af-41bb-b22c-ca09298454ec"></script></body>
+</html>
