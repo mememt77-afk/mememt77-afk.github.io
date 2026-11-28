@@ -296,17 +296,17 @@ button { font: inherit; color: inherit; }
   .pick-media { width: 100%; height: 148px; }
   .pick-img { object-fit: contain; }
 }
+/* 카드가 2장 이상인 2단 구성에서는 사진을 한 단계 작게 */
+@media (min-width: 720px) {
+  .picks-grid.is-multi .pick-media { width: 136px; height: 136px; }
+  .picks-grid.is-multi .pick-body { gap: 16px; }
+}
 /* 좁은 2단(720~859px)에서는 사진을 위로 올려 구매 버튼이 카드 폭을 넘지 않고 한 줄에 들어가게 한다 */
 @media (min-width: 720px) and (max-width: 859px) {
   .pick-body { flex-direction: column; align-items: stretch; gap: 12px; }
   .pick-media, .picks-grid.is-multi .pick-media { width: 100%; height: 148px; }
   .pick-img { object-fit: contain; }
   .pick-info .pick-cta { align-self: stretch; }
-}
-/* 카드가 2장 이상인 2단 구성에서는 사진을 한 단계 작게 */
-@media (min-width: 720px) {
-  .picks-grid.is-multi .pick-media { width: 136px; height: 136px; }
-  .picks-grid.is-multi .pick-body { gap: 16px; }
 }
 .pick-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .pick-badge {
